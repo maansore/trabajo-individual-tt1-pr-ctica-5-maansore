@@ -133,6 +133,7 @@ public class ApiClient extends JavaTimeFormatter {
     * @param mapper ObjectMapper used for serialize/deserialize
     * @return WebClient
     */
+    @SuppressWarnings({"deprecation", "removal"})
     public static WebClient.Builder buildWebClientBuilder(ObjectMapper mapper) {
         ExchangeStrategies strategies = ExchangeStrategies
             .builder()
