@@ -119,8 +119,8 @@ public class ServicioSimulacion implements InterfazContactoSim {
 
     @Override
     public List<Entidad> getEntities() {
-        Entidad e1 = new Entidad(); e1.setId(1); e1.setName(" 1"); e1.setDescripcion("...");
-        Entidad e2 = new Entidad(); e2.setId(2); e2.setName(" 2"); e2.setDescripcion("...");
+        Entidad e1 = new Entidad(); e1.setId(1); e1.setName(" Cherbourg"); e1.setDescripcion("...");
+        Entidad e2 = new Entidad(); e2.setId(2); e2.setName(" Rochefort"); e2.setDescripcion("...");
         return Arrays.asList(e1, e2);
     }
 
