@@ -17,7 +17,7 @@ public class ServicioEmails implements InterfazEnviarEmails {
         this.logger = logger;
         this.emailApi = new EmailApi();
         // Ajusta el puerto (8080 o 5000) según la configuración de tu máquina virtual
-        this.emailApi.getApiClient().setBasePath("http://localhost:8080");
+        this.emailApi.getApiClient().setBasePath("http://servicio-consumible:8080");
     }
 
     @Override

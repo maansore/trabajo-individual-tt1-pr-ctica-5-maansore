@@ -25,10 +25,10 @@ public class ServicioSimulacion implements InterfazContactoSim {
 
     public ServicioSimulacion() {
         this.solicitudApi = new SolicitudApi();
-        this.solicitudApi.getApiClient().setBasePath("http://localhost:8080");
+        this.solicitudApi.getApiClient().setBasePath("http://servicio-consumible:8080");
 
         this.resultadosApi = new ResultadosApi();
-        this.resultadosApi.getApiClient().setBasePath("http://localhost:8080");
+        this.resultadosApi.getApiClient().setBasePath("http://servicio-consumible:8080");
     }
 
     @Override
