@@ -20,7 +20,6 @@ public class ServicioSimulacion implements InterfazContactoSim {
     private final SolicitudApi solicitudApi;
     private final ResultadosApi resultadosApi;
 
-    // Cadena constante pedida por la Práctica 5
     private static final String USUARIO_CONSTANTE = "mi_usuario";
 
     public ServicioSimulacion() {
@@ -37,7 +36,6 @@ public class ServicioSimulacion implements InterfazContactoSim {
         List<String> nombres = new ArrayList<>();
         List<Integer> cantidades = new ArrayList<>();
 
-        // Convertimos tus datos a las listas que espera la API
         for (Map.Entry<Integer, Integer> entry : sol.getNums().entrySet()) {
             nombres.add("Entidad_" + entry.getKey());
             cantidades.add(entry.getValue());
@@ -54,7 +52,7 @@ public class ServicioSimulacion implements InterfazContactoSim {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return -1; // En caso de fallo devolvemos -1
+        return -1;
     }
 
     @Override
@@ -73,7 +71,7 @@ public class ServicioSimulacion implements InterfazContactoSim {
         return null;
     }
 
-    // Método auxiliar para traducir el texto de la VM a tus objetos Java
+    // Métod0 auxiliar para traducir el texto de la VM a tus objetos Java
     private DatosSimulation parsearDatosGrid(String data) {
         DatosSimulation ds = new DatosSimulation();
         Map<Integer, List<Punto>> puntosMap = new HashMap<>();
@@ -101,7 +99,6 @@ public class ServicioSimulacion implements InterfazContactoSim {
                     p.setY(y);
                     p.setColor(color);
 
-                    // Añadir el punto al mapa de ese segundo
                     puntosMap.computeIfAbsent(tiempo, k -> new ArrayList<>()).add(p);
 
                     if (tiempo > maxSegundos) {
@@ -111,7 +108,6 @@ public class ServicioSimulacion implements InterfazContactoSim {
             }
         }
 
-        // Sumamos 1 porque si el tiempo llega a 2, hay tiempos 0, 1 y 2 (total 3 segundos)
         ds.setMaxSegundos(maxSegundos + 1);
         ds.setPuntos(puntosMap);
         return ds;

@@ -11,12 +11,11 @@ import org.slf4j.Logger;
 public class ServicioEmails implements InterfazEnviarEmails {
 
     private final Logger logger;
-    private final EmailApi emailApi; // Instancia de la API generada
+    private final EmailApi emailApi;
 
     public ServicioEmails(Logger logger){
         this.logger = logger;
         this.emailApi = new EmailApi();
-        // Ajusta el puerto (8080 o 5000) según la configuración de tu máquina virtual
         this.emailApi.getApiClient().setBasePath("http://servicio-consumible:8080");
     }
 
@@ -26,7 +25,6 @@ public class ServicioEmails implements InterfazEnviarEmails {
             return false;
         } else {
             try {
-                // Llamamos a la máquina virtual y bloqueamos para esperar la respuesta
                 EmailResponse response = emailApi.emailPost("usuario@prueba.com", email).block();
 
                 logger.info("Email enviado a la máquina virtual. Éxito: " + response.getDone());
